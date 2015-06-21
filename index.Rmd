@@ -1,0 +1,54 @@
+---
+title       : The Countdown
+subtitle    : Developin Data Products Course Project
+author      : Carlos Ponce
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Why
+- People wait for an important date.
+- The days remaining for a deadline of a project or anything is relevant to know.
+- It's good to be aware and prepared.
+
+--- .class #id 
+
+## What it does
+1. Allows the user to select from an input widget a range of dates.
+2. Processes both dates and counts the days between them.
+3. Displays to the user the amount of days remaining to get to the second date.
+
+It can also display days remaining without counting weekends.
+
+---
+
+## How it looks 
+![width](assets/img/howitlooks.png)
+
+---
+
+## In action
+Simulating an input for dates between 2015-06-22 to 2015-08-10 (when the semester begins):
+```{r echo = TRUE}
+fechas <- c("2015-06-22", "2015-08-10")
+fechas <- as.Date(fechas)
+## With weekends
+confines <- fechas[2] - fechas[1]
+## Without weekends
+wd <- weekdays(seq(fechas[1], fechas[2], by = "days"))
+entresemana <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "lunes", "martes", 
+                 "miércoles", "jueves", "viernes")
+sinfines <- paste("Time difference of ", length(wd[wd %in% entresemana]), " days.")
+```
+
+Results:
+With weekends: Time differences of `r confines` days.
+Without weekends: `r sinfines`
+
+
+

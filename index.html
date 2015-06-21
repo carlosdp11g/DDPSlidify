@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Countdown</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Countdown">
+  <meta name="author" content="Carlos Ponce">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The Countdown</h1>
+    <h2>Developin Data Products Course Project</h2>
+    <p>Carlos Ponce<br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Why</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>People wait for an important date.</li>
+<li>The days remaining for a deadline of a project or anything is relevant to know.</li>
+<li>It&#39;s good to be aware and prepared.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>What it does</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Allows the user to select from an input widget a range of dates.</li>
+<li>Processes both dates and counts the days between them.</li>
+<li>Displays to the user the amount of days remaining to get to the second date.</li>
+</ol>
+
+<p>It can also display days remaining without counting weekends.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>How it looks</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="assets/img/howitlooks.png" alt="width"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>In action</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Simulating an input for dates between 2015-06-22 to 2015-08-10 (when the semester begins):</p>
+
+<pre><code class="r">fechas &lt;- c(&quot;2015-06-22&quot;, &quot;2015-08-10&quot;)
+fechas &lt;- as.Date(fechas)
+## With weekends
+confines &lt;- fechas[2] - fechas[1]
+## Without weekends
+wd &lt;- weekdays(seq(fechas[1], fechas[2], by = &quot;days&quot;))
+entresemana &lt;- c(&quot;Monday&quot;, &quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;, &quot;Friday&quot;, &quot;lunes&quot;, &quot;martes&quot;, 
+                 &quot;miércoles&quot;, &quot;jueves&quot;, &quot;viernes&quot;)
+sinfines &lt;- paste(&quot;Time difference of &quot;, length(wd[wd %in% entresemana]), &quot; days.&quot;)
+</code></pre>
+
+<p>Results:
+With weekends: Time differences of 49 days.
+Without weekends: Time difference of  29  days.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Why'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='What it does'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How it looks'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='In action'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
